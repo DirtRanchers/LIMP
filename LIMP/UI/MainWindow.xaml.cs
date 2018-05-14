@@ -24,5 +24,16 @@ namespace LIMP.UI
         {
             InitializeComponent();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void sliderRotate_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            RotateTransform rotateTransform = new RotateTransform(e.NewValue);
+            imgMain.RenderTransform = rotateTransform;
+        }
     }
 }

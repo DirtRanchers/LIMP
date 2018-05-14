@@ -9,6 +9,7 @@
     <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Menu DockPanel.Dock="Top" Height="25" VerticalAlignment="Top" HorizontalAlignment="Stretch" >
             <MenuItem Name="menuItemFile" Header="_File">
+                <MenuItem Header="_Open" Click="MenuItem_Click"/>
                 <MenuItem Header="_Save"/>
                 <MenuItem Header="Save _As..."/>
                 <Separator/>
@@ -24,11 +25,20 @@
         </Grid>
         <Grid Name="gridControls" DockPanel.Dock="Right" Width="100" HorizontalAlignment="Right" VerticalAlignment="Stretch">
             <Border BorderBrush="Black" BorderThickness="0.5"/>
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center">Controls here</Label>
+            <Slider Name="sliderRotate" Orientation="Vertical" 
+                    Width="80" Minimum="-180" Maximum="180" TickFrequency="90" Value="0" 
+                    TickPlacement="Both"
+                    AutoToolTipPlacement="BottomRight"
+                    AutoToolTipPrecision="1"
+ 
+                    Interval="90" ValueChanged="sliderRotate_ValueChanged" />
         </Grid>
         <Grid Name="gridImage" Width="Auto" VerticalAlignment="Stretch">
             <Border BorderBrush="Black" BorderThickness="0.5"/>
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center">Image here</Label>
+            <Image Name="imgMain" Stretch="Uniform" Source="c:\users\rich\desktop\aogg.gif" RenderTransformOrigin="0.5,0.5">
+
+            </Image>
+            <!--<Label HorizontalAlignment="Center" VerticalAlignment="Center">Image here</Label>-->
         </Grid>
     </DockPanel>
 </Window>
