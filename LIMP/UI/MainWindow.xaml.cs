@@ -32,8 +32,11 @@ namespace LIMP.UI
 
         private void sliderRotate_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            RotateTransform rotateTransform = new RotateTransform(e.NewValue);
-            imgMain.RenderTransform = rotateTransform;
+            
+            //RotateTransform rotateTransform = new RotateTransform(e.NewValue);
+            //imgMain.RenderTransform = rotateTransform;
+           
         }
+
     }
 }

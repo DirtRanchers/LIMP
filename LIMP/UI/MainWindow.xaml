@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="LIMP" Height="450" Width="800">
     <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Menu DockPanel.Dock="Top" Height="25" VerticalAlignment="Top" HorizontalAlignment="Stretch" >
+        <Menu DockPanel.Dock="Top" Height="25" VerticalAlignment="Top"  >
             <MenuItem Name="menuItemFile" Header="_File">
                 <MenuItem Header="_Open" Click="MenuItem_Click"/>
                 <MenuItem Header="_Save"/>
@@ -23,22 +23,28 @@
             <Border BorderBrush="Black" BorderThickness="0.5"/>
             <Label HorizontalAlignment="Left" VerticalAlignment="Center">Status here</Label>
         </Grid>
-        <Grid Name="gridControls" DockPanel.Dock="Right" Width="100" HorizontalAlignment="Right" VerticalAlignment="Stretch">
+        <Grid Name="gridControls" DockPanel.Dock="Right" Width="100" >
             <Border BorderBrush="Black" BorderThickness="0.5"/>
             <Slider Name="sliderRotate" Orientation="Vertical" 
                     Width="80" Minimum="-180" Maximum="180" TickFrequency="90" Value="0" 
                     TickPlacement="Both"
                     AutoToolTipPlacement="BottomRight"
                     AutoToolTipPrecision="1"
- 
-                    Interval="90" ValueChanged="sliderRotate_ValueChanged" />
+                    Margin="0 15 0 15"
+                    Interval="90" ValueChanged="sliderRotate_ValueChanged" >
+            </Slider>
         </Grid>
-        <Grid Name="gridImage" Width="Auto" VerticalAlignment="Stretch">
+        <Grid Name="gridImage" >
             <Border BorderBrush="Black" BorderThickness="0.5"/>
-            <Image Name="imgMain" Stretch="Uniform" Source="c:\users\rich\desktop\aogg.gif" RenderTransformOrigin="0.5,0.5">
-
+            <Viewbox>
+            <Image Name="imgMain" Stretch="Uniform"  Source="c:\users\rich\desktop\aogg.gif" RenderTransformOrigin="0.5,0.5">
+               
+                <Image.LayoutTransform>
+                    <RotateTransform Angle="{Binding ElementName=sliderRotate, Path=Value}"/>
+                </Image.LayoutTransform>
             </Image>
             <!--<Label HorizontalAlignment="Center" VerticalAlignment="Center">Image here</Label>-->
+            </Viewbox>
         </Grid>
     </DockPanel>
 </Window>
